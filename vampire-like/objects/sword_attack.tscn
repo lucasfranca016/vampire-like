@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdhvo6aah1w8v"]
+
+[ext_resource type="PackedScene" uid="uid://ccunpnwgl5whh" path="res://objects/system/hit_box.tscn" id="1_jglc8"]
+[ext_resource type="Texture2D" uid="uid://6cw1gqabdwge" path="res://assets/character/slash1.png" id="1_u3wpc"]
+[ext_resource type="Texture2D" uid="uid://ct21ewq04ma5q" path="res://assets/character/slash2.png" id="2_jglc8"]
+[ext_resource type="Texture2D" uid="uid://cqmnssbdvnsqw" path="res://assets/character/slash3.png" id="3_uqewb"]
+[ext_resource type="Texture2D" uid="uid://bucaauydsl056" path="res://assets/character/slash4.png" id="4_acrry"]
+[ext_resource type="Texture2D" uid="uid://k482mh2eqspd" path="res://assets/character/slash5.png" id="5_mv6do"]
+[ext_resource type="Texture2D" uid="uid://cobbn7kgxh2fm" path="res://assets/character/slash6.png" id="6_cw6yl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o7smt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u3wpc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jglc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uqewb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_acrry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mv6do")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cw6yl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="SwordAttack" type="Node2D"]
+
+[node name="FirstSlash" parent="." instance=ExtResource("1_jglc8")]
+position = Vector2(-5, 0)
+collision_layer = 4
+collision_mask = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FirstSlash"]
+scale = Vector2(0.9022479, 0.9022479)
+sprite_frames = SubResource("SpriteFrames_o7smt")
+autoplay = "default"
+
+[node name="SecondSlash" parent="." instance=ExtResource("1_jglc8")]
+position = Vector2(5, 0)
+collision_layer = 4
+collision_mask = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SecondSlash"]
+scale = Vector2(0.9067396, 0.9067396)
+sprite_frames = SubResource("SpriteFrames_o7smt")
+autoplay = "default"
+flip_h = true
+
+[editable path="FirstSlash"]
+[editable path="SecondSlash"]

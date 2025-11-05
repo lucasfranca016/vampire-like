@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccunpnwgl5whh"]
+
+[ext_resource type="Script" uid="uid://bfl5d3b5i1thm" path="res://code/system/hit_box.gd" id="1_k1lk0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kj0v"]
+size = Vector2(15, 20)
+
+[node name="HitBox" type="Area2D"]
+script = ExtResource("1_k1lk0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0kj0v")
+
+[node name="DisableHitBoxTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DisableHitBoxTimer" to="." method="_on_disable_hit_box_timer_timeout"]
